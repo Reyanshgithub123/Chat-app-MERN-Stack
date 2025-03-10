@@ -1,14 +1,17 @@
-import React from 'react'
+
 import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import AuthImagePattern from "../components/AuthImagePattern";
 import toast from "react-hot-toast";
+import { useState } from 'react';
+import { useAuthStore } from "../store/useAuthStore"; 
+
 const Signup = () => {
 
 
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
-    fullName: "",
+    fullName: "", 
     email: "",
     password: "",
   });
@@ -25,7 +28,7 @@ const Signup = () => {
     return true;
   };
 
-  const handleSubmit=()=>{
+  const handleSubmit=(e)=>{
     e.preventDefault();
 
     const success = validateForm();
